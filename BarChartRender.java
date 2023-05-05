@@ -12,24 +12,24 @@ public class BarChartRender extends ApplicationFrame {
   public BarChartRender() {
       super( "Name Your Chart" );        
       JFreeChart barChart = ChartFactory.createBarChart(
-         "YOUR TITLE",           
-         "NAME OF X-AXIS",            
-         "NAME OF Y-AXIS",            
+         "Airlines",           
+         "",            
+         "",            
          createDataset(id.getData()),    //NOTICE THIS !      
          PlotOrientation.VERTICAL,           
          true, true, false);
       
-      //HOW TO COLOR BARS
-      // CategoryPlot plot = barChart.getCategoryPlot();
-      // BarRenderer renderer = (BarRenderer) plot.getRenderer();
+      // HOW TO COLOR BARS
+      CategoryPlot plot = barChart.getCategoryPlot();
+      BarRenderer renderer = (BarRenderer) plot.getRenderer();
 
-      // // set the color (r,g,b) or (r,g,b,a)
-      // Color color = new Color(255, 129, 189);
-      // Color color1 = new Color(150, 129, 189);
-      // Color color2 = new Color(0, 129, 189);
-      // renderer.setSeriesPaint(0, color);
-      // renderer.setSeriesPaint(1, color1);
-      // renderer.setSeriesPaint(2, color2);
+      // set the color (r,g,b) or (r,g,b,a)
+      Color color = new Color(255, 129, 189);
+      Color color1 = new Color(150, 129, 189);
+      Color color2 = new Color(0, 129, 189);
+      renderer.setSeriesPaint(0, color);
+      renderer.setSeriesPaint(1, color1);
+      renderer.setSeriesPaint(2, color2);
 
 
       ChartPanel chartPanel = new ChartPanel( barChart );        

@@ -9,7 +9,7 @@ public class LineChartExample extends ApplicationFrame {
       super(applicationTitle);
       JFreeChart lineChart = ChartFactory.createLineChart(
          chartTitle,
-         "Years","Number of Schools",
+         "Years","Emmisions",
          createDataset(),
          PlotOrientation.VERTICAL,
          true,true,false);
@@ -21,19 +21,32 @@ public class LineChartExample extends ApplicationFrame {
 
    private CategoryDataset createDataset( ) {
       DefaultCategoryDataset dataset = new DefaultCategoryDataset( );
-      dataset.addValue( 15 , "schools" , "1970" );
-      dataset.addValue( 30 , "schools" , "1980" );
-      dataset.addValue( 60 , "schools" ,  "1990" );
-      dataset.addValue( 120 , "schools" , "2000" );
-      dataset.addValue( 240 , "schools" , "2010" );
-      dataset.addValue( 300 , "schools" , "2014" );
+      dataset.addValue( 288000 , "CO2" , "1970" );
+      dataset.addValue( 309000 , "CO2" , "1975" );
+      dataset.addValue(  320000 , "CO2" ,  "1980" );
+      dataset.addValue( 291000 , "CO2" , "1985" );
+      dataset.addValue( 273000 , "CO2" , "1990" );
+
+      dataset.addValue( 684000 , "N2O" , "1970" );
+      dataset.addValue( 683000 , "N2O" , "1975" );
+      dataset.addValue( 694000 , "N2O" ,  "1980" );
+      dataset.addValue( 666000 , "N2O" , "1985" );
+      dataset.addValue( 667000 , "N2O" , "1990" );
+
+      dataset.addValue( 4690000 , "CH2" , "1970" );
+      dataset.addValue( 4620000 , "CH2" , "1975" );
+      dataset.addValue( 4890000 , "CH2" ,  "1980" );
+      dataset.addValue( 4770000 , "CH2" , "1985" );
+      dataset.addValue( 5090000 , "CH2" , "1990" );
+
+
       return dataset;
    }
    
    public static void main( String[ ] args ) {
       LineChartExample chart = new LineChartExample(
-         "School Vs Years" ,
-         "Numer of Schools vs years");
+         "Emmisions Over Years" ,
+         "Emmisions Over The Years");
 
       chart.pack( );
       RefineryUtilities.centerFrameOnScreen( chart );
