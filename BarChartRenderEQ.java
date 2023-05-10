@@ -4,15 +4,15 @@ import org.jfree.data.category.*;
 import org.jfree.ui.*; 
 import java.util.*;
 
-public class BarChartRender extends ApplicationFrame {
+public class BarChartRenderEQ extends ApplicationFrame {
   //LOOK HERE
-  private ImportData id = new ImportData("https://corgis-edu.github.io/corgis/datasets/csv/health/health.csv");
+  private ImportData id = new ImportData("https://corgis-edu.github.io/corgis/datasets/csv/global_emissions/global_emissions.csv");
   
   //STUDY THIS
-  public BarChartRender() {
-      super( "Heath Diseases" );        
+  public BarChartRenderEQ() {
+      super( "Emmisions Data" );        
       JFreeChart barChart = ChartFactory.createBarChart(
-         "Diseases",           
+         "Emmisions ",           
          "",            
          "",            
          createDataset(id.getData()),    //NOTICE THIS !      
@@ -44,13 +44,13 @@ public class BarChartRender extends ApplicationFrame {
 
       //Create a dataset --
       for(Record r : records){
-         String Disease = r.getValueByIndex(0);
-         String Number = r.getValueByIndex(4);
+         String airport = r.getValueByIndex(0);
+         String month = r.getValueByIndex(4);
          String year = r.getValueByIndex(5);
          int delaysCarrier = Integer.parseInt(r.getValueByIndex(6));
 
-         if(Disease.equals("Smallpox") && year.equals("1928")){
-            dataset.addValue(delaysCarrier, Disease, year);
+         if(airport.equals("SFO") && month.equals("January")){
+            dataset.addValue(delaysCarrier, airport, year);
          }
       }
       return dataset; 
